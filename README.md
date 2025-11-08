@@ -29,3 +29,18 @@ kubectl run -n dev busybox --image=busybox --restart=Never --rm -it -- /bin/sh
 ```bash
 while true; do wget -q -O- http://apache.dev.svc.cluster.local; done
 ```
+
+✅ Step 1: Install Vertical Pod Autoscaler (VPA) Components
+
+- Install the VPA components (CRDs + controller pods) in your cluster.
+```bash
+git clone https://github.com/kubernetes/autoscaler.git
+cd autoscaler/vertical-pod-autoscaler/
+./hack/vpa-up.sh
+```
+- Verify the installation by checking for CRDs and pods:
+
+```bash
+kubectl get crd | grep verticalpodautoscalers
+kubectl get pods -n kube-system | grep vpa
+```
