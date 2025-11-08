@@ -23,7 +23,7 @@ kubectl -n kube-system rollout restart deployment metrics-server
 - Run this command to create a temporary BusyBox pod in the dev namespace:
 
 ```bash
-kubectl run -n dev busybox --image=busybox --restart=Never -it -- /bin/sh
+kubectl run -n dev busybox --image=busybox --restart=Never --rm -it -- /bin/sh
 ```
 - Once inside the shell (you’ll see a prompt like / #), run this infinite loop to generate CPU load on Apache:
 ```bash
